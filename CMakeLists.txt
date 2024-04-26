@@ -23,12 +23,24 @@ cmake_minimum_required(VERSION 3.20)
 
 project(idlib-text LANGUAGES C)
 
-set(idlib-text.idlib-process-directory "${CMAKE_CURRENT_SOURCE_DIR}/external/idlib-process-1.1")
+if (NOT TARGET idlib-process)
 
-set(idlib-text-cmake-files-dir "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+  set(idlib-text.idlib-process-source-dir CACHE STRING "Path to the IdLib Process Library")
+  if (NOT idlib-text.idlib-process-source-dir)
+    set(idlib-text.idlib-process-source-dir "${CMAKE_CURRENT_SOURCE_DIR}/external/idlib-process-1.1")
+  endif()
+
+  set(idlib-text.idlib-process-binary-dir CACHE STRING "Path to the IdLib Process Library")
+  if (NOT idlib-text.idlib-process-binary-dir)
+    set(idlib-text.idlib-process-binary-dir "${CMAKE_CURRENT_BINARY_DIR}/external/idlib-process-1.1")
+  endif()
+
+  add_subdirectory(${idlib-text.idlib-process-source-dir} ${idlib-text.idlib-process-binary-dir})
+
+endif()
 
 add_subdirectory(library)
-add_subdirectory(${idlib-text.idlib-process-directory})
+
 
 enable_testing()
 add_subdirectory(test/decode)
