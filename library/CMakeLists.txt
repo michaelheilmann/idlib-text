@@ -21,7 +21,7 @@
 
 cmake_minimum_required(VERSION 3.20)
 
-include(${idlib-text.idlib-process-source-dir}/cmake/all.cmake)
+include(${idlib-process.source-dir}/cmake/all.cmake)
 
 set(name idlib-text)
 
