@@ -68,9 +68,9 @@ FetchContent_MakeAvailable(idlib-text)
 ```
 And you can use *IdLib Text* by linking the library target `idlib-text` to a target `<target>`
 ```
-target_link_libraries(my-target idlib-text)
+target_link_libraries(<target> idlib-text)
 ```
-and by adding the include-directive  
+and by adding the include directive  
 ```
 #include "idlib/text.h"
 ```
