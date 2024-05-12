@@ -48,10 +48,10 @@ if (NOT idlib-process.binary-dir)
 endif()
 
 FetchContent_Declare(idlib-process
-                    GIT_REPOSITORY ${idlib-process.repository}
-                    GIT_TAG ${idlib-process.tag}
-                    SOURCE_DIR ${idlib-process.source-dir}
-                    BINARY_DIR ${idlib-process.binary-dir})
+                     GIT_REPOSITORY ${idlib-process.repository}
+                     GIT_TAG ${idlib-process.tag}
+                     SOURCE_DIR ${idlib-process.source-dir}
+                     BINARY_DIR ${idlib-process.binary-dir})
 
 FetchContent_MakeAvailable(idlib-process)
 
